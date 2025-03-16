@@ -1,60 +1,98 @@
-# Multi-Cloud FinOps Cost Anomaly Detection & Auto-Optimization
+# Multi-Cloud FinOps Optimization
 
-## 📌 Overview
-This project is a **real-time AI-powered Multi-Cloud Cost Monitoring & Optimization system**. It helps businesses **detect unexpected cloud cost spikes** across AWS, GCP, and Azure and provides **automated cost-saving recommendations**.
+## Overview
+This project provides a **multi-cloud FinOps optimization solution** that integrates cost management across **AWS, GCP, and Azure**. It enables:
+- **Real-time cost tracking** using cloud provider APIs.
+- **Automated cost optimization** using **Terraform auto-scaling**.
+- **Live monitoring** with **Grafana dashboards**.
 
-## 🚀 Features
-- **Real-Time Cost Monitoring** – Fetches billing data from AWS, GCP, and Azure.
-- **AI-Powered Anomaly Detection** – Uses **Isolation Forest** to detect unusual spikes.
-- **Automated Cost Optimization** – Suggests and triggers cost-saving actions.
-- **Alerts & Dashboard** – Sends notifications via **Slack, Email, or SMS**.
+## Features
+✅ **Multi-Cloud Cost API Integration**  
+- **AWS Cost Explorer API** to track real-time spending.  
+- **GCP Billing API** to retrieve project-level cost data.  
+- **Azure Cost Management API** for detailed billing insights.  
 
-## 📂 Project Structure
-```
-📦 multi-cloud-finops
-├── 📂 src               # Application source code
-│   ├── main.py         # FastAPI backend
-├── 📂 infra            # Infrastructure as Code (Terraform, Boto3, etc.)
-├── 📜 requirements.txt  # Python dependencies
-├── 📜 README.md         # Project documentation
-└── 🐳 Dockerfile        # Containerization setup
-```
+✅ **Terraform Auto-Scaling & Cost Reduction**  
+- AWS Auto-Scaling Group for dynamic instance management.  
+- GCP Instance Group Manager for automatic VM scaling.  
+- Azure Virtual Machine Scale Sets to optimize cloud resources.  
+
+✅ **Grafana Monitoring Dashboard**  
+- Provides a **real-time cost & usage dashboard**.  
+- Supports **multi-cloud visualization** of billing and usage.  
+
+---
 
 ## 🛠️ Setup Instructions
+
 ### 1️⃣ Clone the Repository
 ```sh
-git clone https://github.com/YOUR_GITHUB_USERNAME/multi-cloud-finops.git
+git clone https://github.com/YOUR_USERNAME/multi-cloud-finops.git
 cd multi-cloud-finops
 ```
 
-### 2️⃣ Install Dependencies
+### 2️⃣ Install Dependencies  
+Ensure Python 3.8+ is installed, then run:
 ```sh
 pip install -r requirements.txt
 ```
 
-### 3️⃣ Run the Application
+### 3️⃣ Configure Cloud Credentials  
+Set up authentication for each cloud provider:
+
+#### AWS Credentials (AWS CLI)  
 ```sh
-uvicorn src.main:app --host 0.0.0.0 --port 8000
+aws configure
 ```
 
-### 4️⃣ Access API Endpoints
-- **Detect Anomalies:** `http://localhost:8000/detect-anomalies`
-- **Optimize Costs:** `http://localhost:8000/optimize-cost`
+#### GCP Credentials  
+```sh
+export GOOGLE_APPLICATION_CREDENTIALS="path/to/your-gcp-key.json"
+```
 
-## 🌎 Real-World Applications
-✔ **Enterprises** – Prevent unexpected cloud bills.
-✔ **DevOps & FinOps Teams** – Optimize multi-cloud costs efficiently.
-✔ **Startups** – Reduce unnecessary cloud expenses.
+#### Azure Authentication  
+```sh
+az login
+```
 
-## 🔥 Future Enhancements
-- ✅ Integrate **AWS Cost Explorer API, GCP Billing API, Azure Cost Management API**.
-- ✅ Implement **Auto-Scaling & Cost Reduction Actions** using Terraform/Lambda.
-- ✅ Build a **Grafana Dashboard for Real-Time Monitoring**.
+### 4️⃣ Run the FastAPI Server  
+Start the API service to fetch cloud cost data:
+```sh
+uvicorn src.main:app --reload
+```
 
-## 🏆 Contributing
-Feel free to contribute by submitting issues, feature requests, or pull requests!
+### 5️⃣ Deploy Terraform for Cost Optimization  
+Navigate to the `infra/` directory and run:
+```sh
+terraform init
+terraform apply -auto-approve
+```
 
-## 📧 Contact
-For questions, reach out via GitHub or email.
+### 6️⃣ Set Up Grafana for Cost Monitoring  
+Run the setup script to install Grafana:
+```sh
+bash monitoring/grafana_setup.sh
+```
 
-### Happy Cloud Cost Saving! 🚀
+Then, open Grafana at: **http://localhost:3000**  
+
+---
+
+## 📊 Real-World Applications  
+🔹 **Cost Reduction** – Identify and remove underutilized cloud resources.  
+🔹 **Cloud Cost Forecasting** – Predict and budget cloud expenses.  
+🔹 **Real-Time FinOps Insights** – Monitor and optimize cloud spending dynamically.  
+
+---
+
+## 🚀 Future Enhancements  
+🔹 **AI-Powered Cost Predictions** using ML algorithms.  
+🔹 **Multi-Cloud Kubernetes Cost Optimization**.  
+🔹 **Customizable Grafana Dashboards** for granular insights.  
+
+---
+
+## 🤝 Contributions & Support  
+Feel free to fork this repository, suggest improvements, and contribute to building the best **Multi-Cloud FinOps Automation** tool!
+
+👨‍💻 **Built by [Your Name]**  
