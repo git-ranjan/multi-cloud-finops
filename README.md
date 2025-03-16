@@ -1,97 +1,59 @@
-# Multi-Cloud FinOps Optimization
+# Multi-Cloud FinOps Automation
 
 ## Overview
-This project provides a **multi-cloud FinOps optimization solution** that integrates cost management across **AWS, GCP, and Azure**. It enables:
-- **Real-time cost tracking** using cloud provider APIs.
-- **Automated cost optimization** using **Terraform auto-scaling**.
-- **Live monitoring** with **Grafana dashboards**.
+This project automates cost optimization and monitoring for **AWS, GCP, and Azure** using AI-powered predictions, Kubernetes auto-scaling, and Grafana dashboards.
 
 ## Features
-✅ **Multi-Cloud Cost API Integration**  
-- **AWS Cost Explorer API** to track real-time spending.  
-- **GCP Billing API** to retrieve project-level cost data.  
-- **Azure Cost Management API** for detailed billing insights.  
+### 1️⃣ AI-Powered Cost Predictions  
+- Uses **Machine Learning (Linear Regression)** to predict future cloud costs.  
+- Trains on historical billing data to identify trends and forecast upcoming expenses.  
+- Helps finance and DevOps teams **plan budgets proactively**.  
 
-✅ **Terraform Auto-Scaling & Cost Reduction**  
-- AWS Auto-Scaling Group for dynamic instance management.  
-- GCP Instance Group Manager for automatic VM scaling.  
-- Azure Virtual Machine Scale Sets to optimize cloud resources.  
+### 2️⃣ Kubernetes Cost Optimization (KEDA Auto-Scaling)  
+- Uses **KEDA (Kubernetes Event-Driven Autoscaling)** to dynamically scale workloads.  
+- Prevents **over-provisioning** by adjusting replica counts based on real-time CPU usage.  
+- Reduces cloud costs while ensuring performance.  
 
-✅ **Grafana Monitoring Dashboard**  
-- Provides a **real-time cost & usage dashboard**.  
-- Supports **multi-cloud visualization** of billing and usage.  
+### 3️⃣ Customizable Grafana Dashboards  
+- Provides **real-time cost visibility** for AWS, GCP, and Azure.  
+- Displays per-service, per-region cost breakdowns.  
+- Helps businesses make **data-driven cost decisions**.  
 
----
+## Installation & Setup
+1️⃣ Clone the repository:  
+   ```bash
+   git clone https://github.com/YOUR_GITHUB_USERNAME/multi-cloud-finops.git
+   cd multi-cloud-finops
+   ```
 
-## 🛠️ Setup Instructions
+2️⃣ Install dependencies:  
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-### 1️⃣ Clone the Repository
-```sh
-git clone https://github.com/YOUR_USERNAME/multi-cloud-finops.git
-cd multi-cloud-finops
-```
+3️⃣ Train the AI model and predict future costs:  
+   ```bash
+   python src/ai_cost_prediction.py
+   ```
 
-### 2️⃣ Install Dependencies  
-Ensure Python 3.8+ is installed, then run:
-```sh
-pip install -r requirements.txt
-```
+4️⃣ Deploy Kubernetes Auto-Scaler:  
+   ```bash
+   kubectl apply -f kubernetes/keda_autoscaler.yaml
+   ```
 
-### 3️⃣ Configure Cloud Credentials  
-Set up authentication for each cloud provider:
+5️⃣ Set up Grafana dashboard:  
+   - Import `monitoring/grafana_dashboard.json` into Grafana.  
+   - Connect Prometheus to fetch cloud billing metrics.  
 
-#### AWS Credentials (AWS CLI)  
-```sh
-aws configure
-```
+## Real-World Applications
+🔹 **IT & DevOps Teams** → Reduce cloud waste & optimize workloads.  
+🔹 **Finance Departments** → Forecast future cloud costs.  
+🔹 **Cloud-Native Businesses** → Improve cloud governance and FinOps strategies.  
 
-#### GCP Credentials  
-```sh
-export GOOGLE_APPLICATION_CREDENTIALS="path/to/your-gcp-key.json"
-```
-
-#### Azure Authentication  
-```sh
-az login
-```
-
-### 4️⃣ Run the FastAPI Server  
-Start the API service to fetch cloud cost data:
-```sh
-uvicorn src.main:app --reload
-```
-
-### 5️⃣ Deploy Terraform for Cost Optimization  
-Navigate to the `infra/` directory and run:
-```sh
-terraform init
-terraform apply -auto-approve
-```
-
-### 6️⃣ Set Up Grafana for Cost Monitoring  
-Run the setup script to install Grafana:
-```sh
-bash monitoring/grafana_setup.sh
-```
-
-Then, open Grafana at: **http://localhost:3000**  
+## Future Enhancements
+🔹 **Advanced AI models** for anomaly detection in cloud billing.  
+🔹 **Multi-cloud Spot Instance Optimization**.  
+🔹 **Automated Rightsizing Recommendations**.  
 
 ---
-
-## 📊 Real-World Applications  
-🔹 **Cost Reduction** – Identify and remove underutilized cloud resources.  
-🔹 **Cloud Cost Forecasting** – Predict and budget cloud expenses.  
-🔹 **Real-Time FinOps Insights** – Monitor and optimize cloud spending dynamically.  
-
----
-
-## 🚀 Future Enhancements  
-🔹 **AI-Powered Cost Predictions** using ML algorithms.  
-🔹 **Multi-Cloud Kubernetes Cost Optimization**.  
-🔹 **Customizable Grafana Dashboards** for granular insights.  
-
----
-
-## 🤝 Contributions & Support  
-Feel free to fork this repository, suggest improvements, and contribute to building the best **Multi-Cloud FinOps Automation** tool!
-
+💡 *Contribute & Improve: Fork this repo and help build the future of FinOps!* 🚀

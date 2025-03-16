@@ -1,0 +1,24 @@
+{
+  "dashboard": {
+    "id": null,
+    "uid": "multi-cloud-cost",
+    "title": "Multi-Cloud Cost Monitoring",
+    "panels": [
+      {
+        "title": "AWS Cost Explorer",
+        "type": "graph",
+        "targets": [{ "expr": "aws_billing_total", "legendFormat": "AWS Cost" }]
+      },
+      {
+        "title": "GCP Billing",
+        "type": "graph",
+        "targets": [{ "expr": "gcp_billing_total", "legendFormat": "GCP Cost" }]
+      },
+      {
+        "title": "Azure Cost",
+        "type": "graph",
+        "targets": [{ "expr": "azure_billing_total", "legendFormat": "Azure Cost" }]
+      }
+    ]
+  }
+}
