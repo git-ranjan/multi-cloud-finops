@@ -95,4 +95,3 @@ Then, open Grafana at: **http://localhost:3000**
 ## 🤝 Contributions & Support  
 Feel free to fork this repository, suggest improvements, and contribute to building the best **Multi-Cloud FinOps Automation** tool!
 
-👨‍💻 **Built by [Your Name]**  
